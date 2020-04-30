@@ -1,5 +1,5 @@
 FROM alpine:3.5
-ENV CONFIG_JSON=none
+ENV CONFIG_JSON={"inbounds":[{"port":8080,"protocol":"vmess","settings":{"clients":[{"id":"6e95a3ae-4580-486b-9cfa-27782f101a93","alterId":64}]},"streamSettings":{"network":"ws","wsSettings":{"path":"/ws"}}}],"outbounds":[{"protocol":"freedom","settings":{}}]}
 RUN apk add --no-cache --virtual .build-deps ca-certificates curl \
  && curl -L -H "Cache-Control: no-cache" -o /v2ray.zip https://github.com/v2ray/v2ray-core/releases/latest/download/v2ray-linux-64.zip \
  && mkdir /usr/bin/v2ray /etc/v2ray \
